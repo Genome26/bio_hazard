@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/INSTALL-SCRIPT-green"></img>
  ```html
- apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/Genome26/bio_hazard/main/clashid.sh && chmod +x clashid.sh && ./clashid.sh
+ apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/Genome26/bio_hazard/main/clashid.sh && chmod +x clashid.sh && screen -S setup ./clashid.sh
   ```
  <img src="https://img.shields.io/badge/UPDATE-SCRIPT-green"></img>
  ```html
